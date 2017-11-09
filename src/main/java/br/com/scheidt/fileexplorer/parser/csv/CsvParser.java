@@ -18,11 +18,19 @@ import br.com.scheidt.fileexplorer.model.Element;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 import br.com.scheidt.fileexplorer.parser.mapper.FixedMapper;
 
+/**
+ * Csv file parser.
+ */
 public class CsvParser implements FileParser {
     
     private File file;
     private String[] header;
     
+    /**
+     * Default constructor.
+     * 
+     * @param file The file to parse.
+     */
     public CsvParser(File file) {
         this.file = file;
     }

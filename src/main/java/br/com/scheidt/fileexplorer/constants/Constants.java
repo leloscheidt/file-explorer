@@ -1,5 +1,8 @@
 package br.com.scheidt.fileexplorer.constants;
 
+/**
+ * Constants used by the application.
+ */
 public class Constants {
     
     public static final String BREAK_LINE = "\n";

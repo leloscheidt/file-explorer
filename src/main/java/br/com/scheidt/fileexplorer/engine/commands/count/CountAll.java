@@ -7,6 +7,9 @@ import br.com.scheidt.fileexplorer.engine.commands.abstracts.AbstractStreamComma
 import br.com.scheidt.fileexplorer.model.Element;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 
+/**
+ * Count all the elements from the file.
+ */
 public class CountAll extends AbstractStreamCommand {
     
     @Override

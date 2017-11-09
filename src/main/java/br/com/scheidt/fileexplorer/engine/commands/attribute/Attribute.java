@@ -5,6 +5,9 @@ import br.com.scheidt.fileexplorer.engine.commands.abstracts.AbstractCommand;
 import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 
+/**
+ * Show the currents attributes from the file.
+ */
 public class Attribute extends AbstractCommand {
     
     @Override

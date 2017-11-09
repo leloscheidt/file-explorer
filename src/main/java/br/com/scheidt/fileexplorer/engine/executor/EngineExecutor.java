@@ -20,12 +20,18 @@ import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.parser.FileParserFactory;
 import br.com.scheidt.fileexplorer.utils.Utils;
 
+/**
+ * Implementing class of the interface Engine.
+ */
 public class EngineExecutor implements Engine {
 
     private final Map<String, Command> commands;
     
     private File file;
     
+    /**
+     * Default constructor.
+     */
     public EngineExecutor() {
         this.commands = new LinkedHashMap<String, Command>();
     }
@@ -65,6 +71,9 @@ public class EngineExecutor implements Engine {
         this.addCommands();
     }
     
+    /**
+     * Adds the default commands to the engine.
+     */
     private void addCommands() {
         this.add(new Attribute());
         this.add(new CountAll());

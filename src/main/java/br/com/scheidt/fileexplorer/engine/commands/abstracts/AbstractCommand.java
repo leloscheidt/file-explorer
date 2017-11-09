@@ -8,6 +8,9 @@ import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 import br.com.scheidt.fileexplorer.parser.FileParserFactory;
 
+/**
+ * Generic command with basic functionality.
+ */
 public abstract class AbstractCommand implements Command {
 
     @Override
@@ -35,7 +38,22 @@ public abstract class AbstractCommand implements Command {
         }
     }
     
+    /**
+     * Execute the command with the given parser and parameters.
+     * 
+     * @param parser The parser to execute the command.
+     * @param parameters The parameters of the execution.
+     * 
+     * @return The result of the execution.
+     * 
+     * @throws ApplicationException if couldn't execute this command.
+     */
     protected abstract String execute(FileParser parser, String[] parameters) throws ApplicationException;
 
+    /**
+     * Returns the number of required parameters of this command.
+     * 
+     * @return The number of required parameters.
+     */
     protected abstract int requiredParameters();
 }

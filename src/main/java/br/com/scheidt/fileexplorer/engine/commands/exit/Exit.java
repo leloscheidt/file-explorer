@@ -4,6 +4,9 @@ import br.com.scheidt.fileexplorer.engine.commands.abstracts.AbstractCommand;
 import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 
+/**
+ * Tells the application to end the flow.
+ */
 public class Exit extends AbstractCommand {
     
     public static final String NAME = "exit";

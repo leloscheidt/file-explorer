@@ -10,12 +10,17 @@ import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.model.Element;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 
+/**
+ * Shows the elements with the given attribute value.
+ */
 public class Filter extends AbstractStreamCommand {
-    
+
+    @Override
     public String name() {
         return "filter";
     }
 
+    @Override
     public String description() {
         return "filter [property] [value] : Writes on the console every record with the given property value";
     }

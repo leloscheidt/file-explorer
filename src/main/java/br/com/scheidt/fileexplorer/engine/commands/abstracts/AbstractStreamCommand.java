@@ -6,6 +6,9 @@ import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.model.Element;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 
+/**
+ * Generic command thats uses a stream from the file to execute.
+ */
 public abstract class AbstractStreamCommand extends AbstractCommand {
 
     @Override
@@ -16,6 +19,17 @@ public abstract class AbstractStreamCommand extends AbstractCommand {
         }
     }
 
+    /**
+     * Execute the command with the given parser, parameters and the stream.
+     * 
+     * @param parser The parser to execute the command.
+     * @param stream The stream from the file.
+     * @param parameters The parameters of the execution.
+     * 
+     * @return The result of the execution.
+     * 
+     * @throws ApplicationException if couldn't execute this command.
+     */
     protected abstract String execute(FileParser parser, Stream<Element> stream, String[] parameters) throws ApplicationException;
 
 }

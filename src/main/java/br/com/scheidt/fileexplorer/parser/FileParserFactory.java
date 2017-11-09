@@ -7,6 +7,9 @@ import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.parser.csv.CsvParser;
 import br.com.scheidt.fileexplorer.utils.Utils;
 
+/**
+ * Returns the proper file parser thats handles the specified file.
+ */
 public enum FileParserFactory {
 
     CSV {
@@ -16,6 +19,15 @@ public enum FileParserFactory {
         }
     };
 
+    /**
+     * Returns the proper file parser thats handles the specified file.
+     * 
+     * @param file The file to parse.
+     * 
+     * @return The file parser.
+     * 
+     * @throws ApplicationException if couldn't find the parser.
+     */
     public static FileParser newParser(File file) throws ApplicationException {
         
         if(!Utils.checkFile(file)) {
@@ -32,7 +44,14 @@ public enum FileParserFactory {
         throw new ApplicationException(Messages.PARSER_NOT_FOUND);
     }
 
-    public static boolean supports(File file) throws ApplicationException {
+    /**
+     * Check if the factory supports the given file and has a proper file parser.
+     * 
+     * @param file The file to parse.
+     * 
+     * @return true if the factory supports this kind of file. False otherwise.
+     */
+    public static boolean supports(File file) {
         
         if (Utils.checkFile(file)) {
 
@@ -46,7 +65,14 @@ public enum FileParserFactory {
 
         return false;
     }
-    
+
+    /**
+     * Returns a new file parser thats parse the specified kind of file.
+     * 
+     * @param file The file to parse.
+     * 
+     * @return The file parser.
+     */
     public abstract FileParser parser(File file);
 
 }

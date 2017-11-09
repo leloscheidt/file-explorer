@@ -9,6 +9,9 @@ import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.utils.Utils;
 import br.com.scheidt.fileexplorer.view.View;
 
+/**
+ * Main application class thats controls flow.
+ */
 public class App {
     
     private static final String DEFAULT_FILEPATH = "assets/cidades.csv";
@@ -17,11 +20,20 @@ public class App {
 
     private Engine engine;
 
+    /**
+     * Default constructor.
+     * 
+     * @param engine The engine thats performs the commands.
+     * @param view The output view.
+     */
     public App(Engine engine, View view) {
         this.view = view;
         this.engine = engine;
     }
     
+    /**
+     * Start the application flow.
+     */
     public void start() {
         this.show(Messages.WELCOME);
         
@@ -43,6 +55,9 @@ public class App {
         }
     }
     
+    /**
+     * Shows and handle the commands inputs.
+     */
     public void showCommands() {
         String input = null;
         String result = null;
@@ -74,6 +89,13 @@ public class App {
         this.view.clear();
     }
     
+    /**
+     * Initialize the engine with the given pathname file.
+     * 
+     * @param pathname The path of the file to read.
+     * 
+     * @throws ApplicationException if couldn't find the file.
+     */
     public void initialize(String pathname) throws ApplicationException {
         if(!Utils.checkFile(pathname)) {
             throw new ApplicationException(Messages.FILE_NOT_FOUND);
@@ -84,10 +106,20 @@ public class App {
         this.engine.initialize(file);
     }
     
+    /**
+     * Shows messages to the output.
+     * 
+     * @param message The message to show.
+     */
     private void show(String message) {
         this.view.show(message);
     }
     
+    /**
+     * Reads from the input.
+     * 
+     * @return the inputed command.
+     */
     private String read() {
         return this.view.read();
     }

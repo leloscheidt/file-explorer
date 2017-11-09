@@ -7,6 +7,9 @@ import java.util.Map;
 
 import br.com.scheidt.fileexplorer.model.Element;
 
+/**
+ * Simple implementation of the Element interface.
+ */
 public class RawElement implements Element {
     
     private final Map<String, String> values;

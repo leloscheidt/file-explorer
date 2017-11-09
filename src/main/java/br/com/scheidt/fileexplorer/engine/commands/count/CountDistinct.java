@@ -13,6 +13,9 @@ import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.model.Element;
 import br.com.scheidt.fileexplorer.parser.FileParser;
 
+/**
+ * Count the distinct attribute values from the file.
+ */
 public class CountDistinct extends AbstractStreamCommand {
 
     @Override
@@ -42,6 +45,13 @@ public class CountDistinct extends AbstractStreamCommand {
         throw new ApplicationException(Messages.ATTRIBUTE_NOT_FOUND);
     }
 
+    /**
+     * Check if the given key already was seen by the stream.
+     * 
+     * @param keyExtractor The function to apply against the stream elements.
+     * 
+     * @return The execution of the function against one element of the stream.
+     */
     private <T> Predicate<T> distinctBy(Function<? super T, ?> keyExtractor) {
         Set<Object> seen = Collections.newSetFromMap(new ConcurrentHashMap<>());
         return t -> seen.add(keyExtractor.apply(t));

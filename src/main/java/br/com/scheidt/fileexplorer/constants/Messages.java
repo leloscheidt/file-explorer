@@ -1,5 +1,8 @@
 package br.com.scheidt.fileexplorer.constants;
 
+/**
+ * Messages used by the application.
+ */
 public class Messages {
     
     public static final String SEPARATOR = "---------------------------";
