@@ -1,6 +1,8 @@
 # file-explorer
 Generic File Explorer/Parser
 
+[![Build Status](https://travis-ci.org/leloscheidt/file-explorer.svg?branch=master)](https://travis-ci.org/leloscheidt/file-explorer)
+
 ## 1. Dependencies
 - JDK 8+
 - Maven
