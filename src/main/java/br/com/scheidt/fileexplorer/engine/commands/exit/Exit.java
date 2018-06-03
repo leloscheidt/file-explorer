@@ -1,5 +1,7 @@
 package br.com.scheidt.fileexplorer.engine.commands.exit;
 
+import java.util.List;
+
 import br.com.scheidt.fileexplorer.engine.commands.abstracts.AbstractCommand;
 import br.com.scheidt.fileexplorer.exception.ApplicationException;
 import br.com.scheidt.fileexplorer.parser.FileParser;
@@ -18,7 +20,7 @@ public class Exit extends AbstractCommand {
 
     @Override
     public String description() {
-        return "exit : Closes the application";
+        return "exit : \n\t Closes the application";
     }
 
     @Override
@@ -27,7 +29,7 @@ public class Exit extends AbstractCommand {
     }
 
     @Override
-    protected String execute(FileParser parser, String[] parameters) throws ApplicationException {
+    protected String execute(FileParser parser, List<String> parameters) throws ApplicationException {
         return "Bye!";
     }
 }

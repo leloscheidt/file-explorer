@@ -1,6 +1,7 @@
 package br.com.scheidt.fileexplorer.engine.commands.count;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -25,12 +26,12 @@ public class CountDistinct extends AbstractStreamCommand {
 
     @Override
     public String description() {
-        return "count distincy [property] : Shows the total number of distinct values for the given attribute.";
+        return "count distincy [property] : \n\t Shows the total number of distinct values for the given attribute.";
     }
 
     @Override
-    protected String execute(FileParser parser, Stream<Element> stream, String[] parameters) throws ApplicationException {
-        String attribute = parameters[1];
+    protected String execute(FileParser parser, Stream<Element> stream, List<String> parameters) throws ApplicationException {
+        String attribute = parameters.get(1);
 
         if (parser.has(attribute)) {
 

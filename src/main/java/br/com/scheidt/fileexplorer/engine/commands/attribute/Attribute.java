@@ -1,5 +1,7 @@
 package br.com.scheidt.fileexplorer.engine.commands.attribute;
 
+import java.util.List;
+
 import br.com.scheidt.fileexplorer.constants.Constants;
 import br.com.scheidt.fileexplorer.engine.commands.abstracts.AbstractCommand;
 import br.com.scheidt.fileexplorer.exception.ApplicationException;
@@ -17,11 +19,11 @@ public class Attribute extends AbstractCommand {
 
     @Override
     public String description() {
-        return "attributes : Shows the attributes of the given file";
+        return "attributes : \n\t Shows the attributes of the given file";
     }
 
     @Override
-    protected String execute(FileParser parser, String[] parameters) throws ApplicationException {
+    protected String execute(FileParser parser, List<String> parameters) throws ApplicationException {
         return String.join(Constants.BREAK_LINE, parser.attributes());
     }
 

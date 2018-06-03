@@ -3,6 +3,9 @@ package br.com.scheidt.fileexplorer.engine.commands.count;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,17 +27,17 @@ public class CountAllTest {
 
     @Test
     public void testValidateWithEmptyArray() {
-        assertFalse(this.command.validate(new String[0]));
+        assertFalse(this.command.validate(new ArrayList<>()));
     }
 
     @Test
     public void testValidateWithMoreNumberOfParameterArray() {
-        assertFalse(this.command.validate(new String[2]));
+        assertFalse(this.command.validate(Arrays.asList("one","two")));
     }
 
     @Test
     public void testValidateWithCorrectParameterArray() {
-        assertTrue(this.command.validate(new String[1]));
+        assertTrue(this.command.validate(Arrays.asList("one")));
     }
 
 }

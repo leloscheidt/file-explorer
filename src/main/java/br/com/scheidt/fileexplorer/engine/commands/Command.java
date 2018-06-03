@@ -1,6 +1,7 @@
 package br.com.scheidt.fileexplorer.engine.commands;
 
 import java.io.File;
+import java.util.List;
 
 import br.com.scheidt.fileexplorer.exception.ApplicationException;
 
@@ -32,7 +33,7 @@ public interface Command {
      * 
      * @throws ApplicationException if couldn't execute this commands or if the given parameters are wrong.
      */
-    String execute(File file, String[] parameters) throws ApplicationException;
+    String execute(File file, List<String> parameters) throws ApplicationException;
     
     /**
      * Validates if the given parameters are handle by this command.
@@ -41,5 +42,5 @@ public interface Command {
      * 
      * @return true if this command handle this parameters. False otherwise.
      */
-    boolean validate(String[] parameters);
+    boolean validate(List<String> parameters);
 }

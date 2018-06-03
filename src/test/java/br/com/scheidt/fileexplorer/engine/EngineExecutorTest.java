@@ -263,11 +263,15 @@ public class EngineExecutorTest {
         assertEquals(expected, result);
     }
     
-    @Test(expected = ApplicationException.class)
+    @Test
     public void testExecuteWithFilterCommandAndMoreParameter() throws ApplicationException {
         this.engine.initialize(TestFile.csv());
         
-        this.engine.execute("filter id 30 more");
+        String expected = "id,name,card,email,status\n31,Elaine Floyd,2587,adipiscing@vulputate.com,4";
+        
+        String result = this.engine.execute("filter name Elaine Floyd");
+        
+        assertEquals(expected, result);
     }
     
     @Test(expected = ApplicationException.class)

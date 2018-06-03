@@ -1,5 +1,6 @@
 package br.com.scheidt.fileexplorer.engine.commands.abstracts;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import br.com.scheidt.fileexplorer.exception.ApplicationException;
@@ -12,7 +13,7 @@ import br.com.scheidt.fileexplorer.parser.FileParser;
 public abstract class AbstractStreamCommand extends AbstractCommand {
 
     @Override
-    public String execute(FileParser parser, String[] parameters) throws ApplicationException {
+    public String execute(FileParser parser, List<String> parameters) throws ApplicationException {
         
         try (Stream<Element> stream = parser.stream()) {
             return this.execute(parser, stream, parameters);
@@ -30,6 +31,6 @@ public abstract class AbstractStreamCommand extends AbstractCommand {
      * 
      * @throws ApplicationException if couldn't execute this command.
      */
-    protected abstract String execute(FileParser parser, Stream<Element> stream, String[] parameters) throws ApplicationException;
+    protected abstract String execute(FileParser parser, Stream<Element> stream, List<String> parameters) throws ApplicationException;
 
 }

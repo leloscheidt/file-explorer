@@ -3,6 +3,9 @@ package br.com.scheidt.fileexplorer.engine.commands.count;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,21 +27,21 @@ public class CountDistinctTest {
     
     @Test
     public void testValidateWithEmptyArray() {
-        assertFalse(this.command.validate(new String[0]));
+        assertFalse(this.command.validate(new ArrayList<>(0)));
     }
     
     @Test
     public void testValidateWithLesserNumberOfParameterArray() {
-        assertFalse(this.command.validate(new String[1]));
+        assertFalse(this.command.validate(Arrays.asList("1")));
     }
     
     @Test
     public void testValidateWithMoreNumberOfParameterArray() {
-        assertFalse(this.command.validate(new String[3]));
+        assertFalse(this.command.validate(Arrays.asList("1","2","3")));
     }
     
     @Test
     public void testValidateWithCorrectParameterArray() {
-        assertTrue(this.command.validate(new String[2]));
+        assertTrue(this.command.validate(Arrays.asList("1","2")));
     }
 }

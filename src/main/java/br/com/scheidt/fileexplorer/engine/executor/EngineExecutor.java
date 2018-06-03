@@ -85,11 +85,13 @@ public class EngineExecutor implements Engine {
     @Override
     public String execute(String text) throws ApplicationException {
         if(this.file != null) {
+        	text = text.toLowerCase();
             Command command = this.command(text);
             
             String[] parts = text.split(Constants.SPACE);
+            List<String> parameters = Arrays.asList(Arrays.copyOfRange(parts, 1, parts.length));
             
-            return command.execute(this.file, Arrays.copyOfRange(parts, 1, parts.length));
+            return command.execute(this.file, parameters);
         }
         
         throw new ApplicationException(Messages.ENGINE_NOT_INITIALIZED);
