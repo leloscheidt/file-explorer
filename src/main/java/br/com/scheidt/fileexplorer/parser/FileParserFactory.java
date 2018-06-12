@@ -53,18 +53,14 @@ public enum FileParserFactory {
      */
     public static boolean supports(File file) {
         
-        if (Utils.checkFile(file)) {
-
-            for (FileParserFactory factory : values()) {
-
-                if (file.getName().toLowerCase().endsWith(factory.name().toLowerCase())) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+        try {
+        	return newParser(file) != null;
+        	
+        } catch (ApplicationException e) {
+			return false;
+		}
     }
+    
 
     /**
      * Returns a new file parser thats parse the specified kind of file.
